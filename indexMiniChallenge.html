@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Learning JavaScript</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      #circleDiv{
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+
+</head>
+
+<body>
+
+  <p>How many fingers am I holding up?</p>
+  <input id="answer" />
+  <button id="myButton">Submit</button>
+
+  <script type="text/javaScript">
+
+    document.getElementById("myButton").onclick=function(){
+
+      var x=Math.random();
+
+      x = x*6;
+
+      x = Math.floor(x);
+
+      if(x==document.getElementById("answer").value){
+        alert("You are correct! The number is " + x);
+      }
+      else{
+        alert("That is incorrect, the number is " +x);
+      }
+
+    }
+  </script>
+
+</body>
+</html>
