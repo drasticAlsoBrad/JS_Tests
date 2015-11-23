@@ -32,7 +32,9 @@
     var createdTime;
     var reactionTime;
     var boxColor = ["green", "red", "black", "pink", "purple"];
-    var shapes = ["50%", "0%"]
+    var shapes = ["0%", "50%"]
+    var xPos = ["0", "100", "200", "300", "400"];
+    var yPos = ["0", "100", "200", "300", "400"];
     
     function makeBox(){
 
@@ -44,12 +46,17 @@
       setTimeout(function(){
         var randomColor = boxColor[Math.floor(Math.random()*boxColor.length)];
         var randomShape = shapes[Math.floor(Math.random()*shapes.length)];
+        var randomX = xPos[Math.floor(Math.random()*xPos.length)];
+        var randomY = yPos[Math.floor(Math.random()*yPos.length)];
+
         document.getElementById("box").style.display="block";
         document.getElementById("box").style.backgroundColor=randomColor;
-        document.getElementById("box").style.borderRadius=randomShape; 
+        document.getElementById("box").style.borderRadius=randomShape;
+        document.getElementById("box").style.marginLeft=randomX + "px";
+        document.getElementById("box").style.marginTop=randomY + "px";
+
         createdTime=Date.now();
       }, time);
-
 
     }
 
