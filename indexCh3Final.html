@@ -7,18 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
+      body{
+        font-family: Verdana, Geneva, sans-serif;
+      }
       #box{
         height: 200px;
         width: 200px;
         background-color: red;
         display: none;
+        position: relative;
+      }
+
+      .bold{
+        font-weight: bold;
       }
     </style>
 </head>
 
 <body>
 
-  <p>Your time: <span id="time"></span></p>
+  <h1>Test your reactions!</h1>
+
+  <p>Click on the boxes and circles as quickly as you can!</p>
+
+  <p class="bold">Your time: <span id="time">0</span>s</p>
 
   <div>
     
@@ -26,51 +38,7 @@
 
   </div>
 
-  <script type="text/javascript">
-
-    var clickedTime;
-    var createdTime;
-    var reactionTime;
-    var boxColor = ["green", "red", "black", "pink", "purple"];
-    var shapes = ["0%", "50%"]
-    var xPos = ["0", "100", "200", "300", "400"];
-    var yPos = ["0", "100", "200", "300", "400"];
-    
-    function makeBox(){
-
-      var time=Math.random();
-
-      //Setting the max time 3000=3 seconds
-      time=time*3000;
-
-      setTimeout(function(){
-        var randomColor = boxColor[Math.floor(Math.random()*boxColor.length)];
-        var randomShape = shapes[Math.floor(Math.random()*shapes.length)];
-        var randomX = xPos[Math.floor(Math.random()*xPos.length)];
-        var randomY = yPos[Math.floor(Math.random()*yPos.length)];
-
-        document.getElementById("box").style.display="block";
-        document.getElementById("box").style.backgroundColor=randomColor;
-        document.getElementById("box").style.borderRadius=randomShape;
-        document.getElementById("box").style.marginLeft=randomX + "px";
-        document.getElementById("box").style.marginTop=randomY + "px";
-
-        createdTime=Date.now();
-      }, time);
-
-    }
-
-    document.getElementById("box").onclick=function(){
-      clickedTime=Date.now();
-      reactionTime=(clickedTime - createdTime)/1000;
-      document.getElementById("time").innerHTML=reactionTime;
-      this.style.display="none";
-      makeBox();
-    }
-
-    makeBox();
-
-  </script>
+  <script type="text/javascript" src="js/ch3final.js"></script>
 
 </body>
 </html>
